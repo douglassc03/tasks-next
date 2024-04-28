@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { NextUI } from "@/providers/next-ui";
 import { Toaster } from "react-hot-toast";
+import { Header } from "@/components/header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,10 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} dark`}>
         <NextUI>
           <Toaster />
-          <main>{children}</main>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1">{children}</main>
+          </div>
         </NextUI>
       </body>
     </html>
