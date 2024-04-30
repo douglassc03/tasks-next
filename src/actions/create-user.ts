@@ -38,7 +38,7 @@ export async function createUser(prevState: State, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Por favor, preencha os campos corretamente.",
+      message: "Please, fill in the fields correctly.",
     };
   }
 
