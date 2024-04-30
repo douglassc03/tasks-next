@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 const createUserSchema = z.object({
   firstName: z.string().min(2, { message: "The first name must at least 2 caracters" }),
   lastName: z.string().min(2, { message: "The first name must at least 2 caracters" }),
-  email: z.string().email({ message: "Please, enter a valid e-mail adress" }),
+  email: z.string().email({ message: "Please, enter a valid e-mail address" }),
   password: z
     .string()
     .min(8, { message: "The password must be at least 8 caracters" })
