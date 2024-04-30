@@ -5,20 +5,20 @@ declare module "next-auth" {
     id: string;
     firstName: string;
     lastName: string;
-  }
+  } 
 
   interface Session {
     user: {
       id: string;
       firstName: string;
       lastName: string;
-    } & DefaultSession["user"];
+    } & DefaultSession;
   }
 }
 
 declare module "@auth/core/jwt" {
   interface JWT {
-    id: string;
+    id: string | undefined;
     firstName: string;
     lastName: string;
   }
