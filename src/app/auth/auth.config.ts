@@ -24,12 +24,14 @@ export const authConfig = {
     },
     jwt({ token, user }) {
       if (user) {
+        token.id = user.id;
         token.firstName = user.firstName;
         token.lastName = user.lastName;
       }
       return token;
     },
     session({ session, token }) {
+      if (token.id) session.user.id = token.id;
       if (token.firstName) session.user.firstName = token.firstName;
       if (token.lastName) session.user.lastName = token.lastName;
       return session;
