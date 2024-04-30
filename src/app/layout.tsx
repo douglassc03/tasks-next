@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { NextUI } from "@/providers/next-ui";
 import { Toaster } from "react-hot-toast";
 import { Header } from "@/components/header";
+import favicon from "@/assets/favicon.ico";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href={favicon.src} />
+      </head>
       <body className={`${poppins.className} dark`}>
         <NextUI>
           <Toaster />
