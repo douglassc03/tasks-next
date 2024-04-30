@@ -20,12 +20,14 @@ model User {
 }
 
 model Task {
-  id        String    @id @default(uuid())
-  title     String    @db.VarChar(255)
-  content   String    @db.Text
-  status    String    @db.VarChar(50)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
-  userId    String
-  user      User      @relation(fields: [userId], references: [id])
+  id          String    @id @default(uuid())
+  title       String    @db.VarChar(255)
+  description String    @db.Text
+  duration    Int       @db.SmallInt
+  date        DateTime  @db.Date
+  status      String    @db.VarChar(50)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
 }
