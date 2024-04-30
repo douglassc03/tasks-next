@@ -4,10 +4,10 @@ import { AuthError } from "next-auth";
 import { z } from "zod";
 
 const authenticateUserSchema = z.object({
-  email: z.string().email({ message: "Por favor, digite um e-mail válido" }),
+  email: z.string().email({ message: "Please, enter a valid e-mail address" }),
   password: z
     .string()
-    .min(8, { message: "A senha deve ter pelo menos 8 caracteres" })
+    .min(8, { message: "Password must be at least 8 characters" })
   });
 
 export type State = {
@@ -28,7 +28,7 @@ export async function authenticateUser(prevState: State, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Por favor, preencha os campos corretamente.",
+      message: "Please, fill in correctly",
     };
   }
 
@@ -42,7 +42,7 @@ export async function authenticateUser(prevState: State, formData: FormData) {
     });
     return {
       success: true,
-      message: "Você foi logado com sucesso.",
+      message: "You logged in succefully.",
     };
   } catch (error) {
     if (error instanceof AuthError) {
@@ -50,12 +50,12 @@ export async function authenticateUser(prevState: State, formData: FormData) {
         case "CredentialsSignin":
           return {
             message:
-              "E-mail ou senha são inválidos. Por favor, tente novamente.",
+              "E-mail or password is incorrect. Please, try again.",
             success: false,
           };
         default:
           return {
-            message: "Algo deu errado. Por favor, tente novamente.",
+            message: "Something went wrong. Please, try again.",
             success: false,
           };
       }
