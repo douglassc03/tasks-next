@@ -1,4 +1,4 @@
-# Lista de Tarefas | Task Management
+# Lista de Tarefas | Task Manager
 
 Apresentando meu novo projeto em Node.js de uma lista de tarefas.
 O projeto foi desenvolvido em Next usando JavaScript, TypeScript, Tailwind e Prisma.
